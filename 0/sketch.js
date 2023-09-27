@@ -1,12 +1,35 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  background('gold'); // Only draw once 
 }
 
 function draw() {
-  background(255);
-  fill(0);
-  rect(width / 2.5, height / 4, width / 20, height / 2);
-  rect(width - width / 2.5 - width / 20, height / 4, width / 20, height / 2);
-  rect(width / 2.5 + width / 20, height / 4 - width / 20, width - 2 * width / 2.5 - 2 * width / 20, width / 20);
-  rect(width / 2.5 + width / 20, height / 4 + height / 2, width - 2 * width / 2.5 - 2 * width / 20, width / 20);
+  noStroke();
+  rect(200, 200, 200, 200); 
+}
+
+// function mousePressed() {
+//  background(255, 125, 125); 
+// }
+// function mouseReleased() {
+//   background('gold');
+// }
+
+// The rectangle fill color is changed upon every click
+function mouseClicked() {
+  fill(random(0, 255), 125, 125);
+  rect(mouseX, mouseY, 80, 80); // The small rectangle will be retained
+}
+
+function mouseMoved() {
+  stroke(0);
+  line(0,0,mouseX,mouseY);
+}
+
+function keyPressed() {
+  if (key == 's') {
+    saveCanvas('myCanvas', 'jpg'); // save the current canvas into a jpg
+  } else if (key == 'r') {
+    background('gold'); // clear the canvas
+  }
 }
